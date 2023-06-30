@@ -42,3 +42,39 @@ During the course of this project, we consider the following types of time serie
 These different types of time series data analysis enable us to gain insights into the underlying patterns and trends in energy consumption. By considering and addressing these variations, we can build accurate predictive models using the powerful XGBoost algorithm.
 
 ![TypesOfTimeSeries](Pictures/TimeSeriesTypes.jpg)
+
+
+## Dataset
+
+The dataset used in this project was obtained from Kaggle. It consists of the following two features:
+
+1. **PJME_MW**: This feature represents the energy consumption in megawatts (MW). It provides the primary data for our analysis and prediction.
+
+2. **Datetime**: This feature represents the timestamp or date and time associated with each energy consumption measurement. It allows us to analyze the energy consumption patterns over time.
+
+## Data Visualization
+
+To facilitate data visualization, we utilized the `to_datetime` function from the pandas library. This function allows us to convert the datetime strings in the dataset into datetime objects, enabling easier manipulation and plotting of the data.
+
+Visualization plays a crucial role in understanding the underlying patterns and trends in the dataset. It helps us gain insights into the relationships between the features and identify any significant temporal variations in energy consumption.
+
+By effectively visualizing the dataset, we can make informed decisions and develop accurate models for energy consumption time series prediction.
+
+![DataVisualization](Pictures/Energy_Consumption_plot.png)
+
+## Train-Test Split
+
+To assess the performance and accuracy of our predictive model, we divide the dataset into two subsets: the training dataset and the test dataset. The split is based on the following criterion:
+
+- All data points before 1st Jan 2015 are included in the training dataset.
+- All data points after 1st Jan 2015 are included in the test dataset.
+
+By separating the data in this way, we ensure that our model is trained on historical observations and evaluated on future unseen data. This split allows us to simulate real-world scenarios where the model predicts energy consumption on new and unknown data.
+
+## Data Visualization
+
+Visualizing the train-test split can help us understand the distribution of the data and the separation between the training and test sets. This visualization aids in assessing the temporal order and ensuring that the split aligns with our intended division of the dataset.
+
+By visually inspecting the train-test split, we can verify that the division accurately represents the temporal sequence of the data and enables reliable evaluation of our predictive model's performance.
+
+![TrainTest](Pictures/Test_train_plot_2.PNG)
