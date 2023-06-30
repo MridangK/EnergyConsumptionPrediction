@@ -78,3 +78,25 @@ Visualizing the train-test split can help us understand the distribution of the 
 By visually inspecting the train-test split, we can verify that the division accurately represents the temporal sequence of the data and enables reliable evaluation of our predictive model's performance.
 
 ![TrainTest](Pictures/Test_train_plot_2.PNG)
+
+## Feature Creation
+
+As part of the feature creation process, the `create_features` function is utilized to extract additional features from the dataset. These features provide supplementary information that has the potential to enhance the accuracy of the energy consumption prediction model.
+
+The `create_features` function adds the following features to the dataset:
+
+- **hour**: Extracted from the timestamp index, indicating the hour of the day.
+- **dayofweek**: Extracted from the timestamp index, indicating the day of the week (0 for Monday, 6 for Sunday).
+- **quarter**: Extracted from the timestamp index, indicating the quarter of the year.
+- **month**: Extracted from the timestamp index, indicating the month of the year.
+- **year**: Extracted from the timestamp index, indicating the year.
+- **dayofyear**: Extracted from the timestamp index, indicating the day of the year.
+
+By incorporating these additional features into the energy consumption prediction model, we capture temporal patterns and seasonality present in the data. This information can be invaluable for modeling and accurately predicting energy consumption.
+
+The inclusion of these extracted features is expected to enhance the performance and predictive capabilities of the energy consumption prediction model.
+
+![VisualizeRelationshipHour](Pictures/VisualizeRelationshipHour.png)
+
+
+![VisualizeRelationshipMonth](Pictures/VisualizeRelationshipMonth.png)
