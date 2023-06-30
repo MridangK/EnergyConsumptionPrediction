@@ -96,7 +96,52 @@ By incorporating these additional features into the energy consumption predictio
 
 The inclusion of these extracted features is expected to enhance the performance and predictive capabilities of the energy consumption prediction model.
 
+## Visualizing Feature-Target Relationship
+
+To understand the relationship between our extracted features and the target variable (energy consumption), we can visualize the patterns and trends in the data. This visualization provides insights into how the features vary with respect to the target variable.
+
+### Feature: Hour of the Day
+
+By plotting the energy consumption against the hour of the day, we can observe the following:
+
 ![VisualizeRelationshipHour](Pictures/VisualizeRelationshipHour.png)
 
+In the early morning hours, there is a dip in energy consumption, which gradually increases throughout the day. This pattern indicates that energy usage tends to be lower during the early hours and progressively rises as the day progresses.
+
+### Feature: Seasonality (Winter, Spring, Summer)
+
+To analyze the relationship between energy consumption and seasonality, we can plot the energy consumption against the seasons:
 
 ![VisualizeRelationshipMonth](Pictures/VisualizeRelationshipMonth.png)
+
+From the visualization, we can observe that there is a peak in energy consumption during the winter season. As the winter season is associated with colder temperatures, this increase in energy consumption can be attributed to the higher demand for heating systems. On the other hand, energy consumption tends to be relatively lower during the spring season. As we transition into summer, there is another rise in energy consumption, potentially due to increased usage of cooling systems.
+
+By visualizing the feature-target relationship, we can gain valuable insights into how the extracted features are related to energy consumption. This understanding helps in developing a more accurate energy consumption prediction model.
+
+
+## Model Creation
+
+For our energy consumption prediction, we utilized the XGB Regressor model. To prevent overfitting and improve the model's generalization ability, we applied the following techniques:
+
+- **Reduced learning rate**: We set the learning rate to 0.01, which controls the step size during the boosting process. A lower learning rate helps prevent overfitting and allows for a more stable convergence of the model.
+
+- **Early stopping rounds**: We implemented early stopping with a patience of 50 rounds. Early stopping monitors the evaluation metric (e.g., mean squared error) on a validation set and stops the training process if the metric does not improve after a certain number of rounds. This technique helps prevent overfitting by stopping the training when the model's performance plateaus.
+
+We determined these parameter values based on our observation of the evaluation set data obtained during the model's fitting process. By evaluating the model's performance on both the training and testing data (X_train and X_test), we obtained a better estimate of the optimal parameters.
+
+## Feature Importance
+
+After training the XGB Regressor model, we can assess the importance of different features in predicting energy consumption. By plotting the feature importance, we can observe the following:
+
+![Feature Importance Plot](Pictures/FeatureImportance_2.PNG)
+
+From the visualization, we can see that the "hour" feature is the most important feature in predicting energy consumption. This indicates that the time of day has a significant impact on energy consumption patterns.
+
+## Interpreting the Results
+
+![RawVSPrediction](Pictures/RawvsPrediction_2.PNG)
+
+
+Upon analyzing the prediction results, it is evident that the model did not perform well in accurately predicting energy consumption. To improve the model's performance and increase the prediction score, further parameter tuning is necessary.
+
+By fine-tuning the model's hyperparameters, such as adjusting the learning rate, maximum depth of trees, and regularization parameters, we can enhance the model's ability to capture complex dependencies and variations in the data. Additionally, exploring other feature engineering techniques and incorporating additional relevant features may also contribute to improving the model's prediction accuracy.
